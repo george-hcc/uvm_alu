@@ -20,8 +20,8 @@ class alu_driver extends uvm_driver #(alu_transaction);
    endtask // run_phase
 
    virtual task get_and_drive(uvm_phase phase);
-      wait (alu_vif.rst_n === 0);
-      @(posedge alu_vif.rst_n);
+      wait (vif.rst_n === 0);
+      @(posedge vif.rst_n);
       forever begin
 	 seq_item_port.get_next_item(tr);
 	 driver_transfer(tr);
@@ -30,12 +30,12 @@ class alu_driver extends uvm_driver #(alu_transaction);
    endtask // get_and_drive
 
    virtual task driver_transfer(alu_transaction tr);
-      @(posedge alu_vif.clk);
-      alu_vif.data_A   <= tr.data_in;
-      alu_vif.reg_sel  <= tr.reg_sel;
-      alu_vif.instr    <= tr.instr;
-      alu_vif.valid_in <= tr.valid_in;
-      @(posedge alu_vif.valid_out);
+      @(posedge vif.clk);
+      vif.data_A   <= tr.data_in;
+      vif.reg_sel  <= tr.reg_sel;
+      vif.instr    <= tr.instr;
+      vif.valid_in <= tr.valid_in;
+      @(posedge vif.valid_out);
    endtask // driver_transfer
    
 endclass // alu_driver
