@@ -9,6 +9,8 @@ interface alu_if
    logic [31:0] data_A;
    logic [1:0] 	reg_sel;
    logic [1:0] 	instr;
-   logic 	valid;
+   logic 	valid_in;
+   logic 	data_out;
+   logic 	valid_out;  
 
 endinterface
