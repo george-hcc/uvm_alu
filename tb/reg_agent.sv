@@ -2,9 +2,9 @@ class reg_agent extends uvm_agent;
    `uvm_component_utils(reg_agent)
 
    uvm_analysis_port #(reg_transaction) reg_agt_port;
-   alu_sequencer reg_sqr;
-   alu_driver reg_drv;
-   alu_monitor reg_mon;
+   reg_sequencer reg_sqr;
+   reg_driver reg_drv;
+   reg_monitor reg_mon;
 
    function new(string name = "reg_agent", uvm_component parent = null);
       super.new(name, parent);
