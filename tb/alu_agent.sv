@@ -1,11 +1,13 @@
 class alu_agent extends uvm_agent;
    `uvm_component_utils(alu_agent)
 
-   uvm_analysis_port #(alu_transaction) alu_agt_port;
+   typedef uvm_sequencer#(alu_transaction) alu_sequencer;
    alu_sequencer alu_sqr;
    alu_driver alu_drv;
    alu_monitor alu_mon;
 
+   uvm_analysis_port #(alu_transaction) alu_agt_port;
+   
    function new(string name = "alu_agent", uvm_component parent = null);
       super.new(name, parent);
       agt_port = new("alu_agt_port", this);
