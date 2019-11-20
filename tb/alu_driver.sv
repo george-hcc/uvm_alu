@@ -16,8 +16,19 @@ class alu_driver extends uvm_driver #(alu_transaction);
    endfunction // build_phase
 
    task run_phase(uvm_phase phase);
-      get_and_drive(phase);
+      fork
+	 reset_signals();
+	 get_and_drive(phase);
+      join
    endtask // run_phase
+
+   virtual task reset_signals();
+      wait(vif.rst_n === 0);
+      forever begin
+	 vif.valid_in <= 0;
+	 @(negedge vif.rst);
+      end
+   endtask // reset_signals
 
    virtual task get_and_drive(uvm_phase phase);
       wait (vif.rst_n === 0);
@@ -35,7 +46,7 @@ class alu_driver extends uvm_driver #(alu_transaction);
       vif.reg_sel  <= tr.reg_sel;
       vif.instr    <= tr.instr;
       vif.valid_in <= tr.valid_in;
-      @(posedge vif.valid_out);
+      @(negedge vif.clk);
    endtask // driver_transfer
    
 endclass // alu_driver
