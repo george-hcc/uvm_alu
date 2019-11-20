@@ -8,11 +8,11 @@ class refmod extends uvm_component;
 
    alu_transaction alu_tr_in;
    reg_transaction reg_tr_in;
-   alu_transaction ref_tr_out;
+   ref_transaction ref_tr_out;
 
-   uvm_analysis_imp #(alu_transaction, refmod) alu_in;
-   uvm_analysis_imp #(reg_transaction, refmod) reg_in;
-   uvm_analysis_port #(alu_transaction) ref_out;
+   uvm_analysis_imp #(alu_transaction, refmod) alu_pin;
+   uvm_analysis_imp #(reg_transaction, refmod) reg_pin;
+   uvm_analysis_port #(ref_transaction) ref_pout;
 
    event begin_refmodtask, begin_record, end_record;
 
@@ -20,9 +20,9 @@ class refmod extends uvm_component;
 
    function new(string name = "refmod", uvm_component parent);
       super.new(name, parent);
-      alu_in = new("alu_in", this);
-      reg_in = new("reg_in", this);
-      ref_out = new("ref_out", this);
+      alu_pin = new("alu_pin", this);
+      reg_pin = new("reg_pin", this);
+      ref_pout = new("ref_pout", this);
    endfunction // new
 
    virtual function void build_phase(uvm_phase phase);
@@ -41,8 +41,12 @@ class refmod extends uvm_component;
    task refmod_task();
       forever begin
 	 @begin_refmodtask;
-	 ref_tr_out = alu_transaction::type_id::create("ref_tr_out", this);
+	 ref_tr_out = ref_transaction::type_id::create("ref_tr_out", this);
 	 -> begin_record;
+	 ref_tr_out.data_out = my_alu(alu_tr_in.data_in, ref_regs[alu_tr_in.reg_sel], alu_tr_in.instr);
+	 #10;
+	 -> end_record;
+	 ref_pout.write(ref_tr_out);
       end
    endtask // refmod_task
 
