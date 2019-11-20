@@ -20,6 +20,8 @@ class alu_transaction extends uvm_sequence_item;
       `uvm_field_int(reg_sel, UVM_UNSIGNED)
       `uvm_field_int(instr, UVM_UNSIGNED)
       `uvm_field_int(valid_in, UVM_BIN)
+      `uvm_field_int(data_out, UVM_UNSIGNED)
+      `uvm_field_int(valid_out, UVM_BIN)
    `uvm_object_utils_end
 
 endclass // alu_transaction
