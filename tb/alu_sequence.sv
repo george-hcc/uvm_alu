@@ -10,7 +10,7 @@ class alu_sequence extends uvm_sequence #(alu_transaction);
       forever begin
 	 tr = alu_transaction::type_id::create("tr");
 	 start_item(tr);
-	   assert(tr.randomize());
+	 assert(tr.randomize());
 	 finish_item(tr);
       end
    endtask // body
