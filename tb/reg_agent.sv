@@ -1,14 +1,15 @@
 class reg_agent extends uvm_agent;
    `uvm_component_utils(reg_agent)
-
-   uvm_analysis_port #(reg_transaction) reg_agt_port;
+   
    reg_sequencer reg_sqr;
    reg_driver reg_drv;
    reg_monitor reg_mon;
 
+   uvm_analysis_port #(reg_transaction) reg_agt_port;
+
    function new(string name = "reg_agent", uvm_component parent = null);
       super.new(name, parent);
-      agt_port = new("reg_agt_port", this);
+      reg_agt_port = new("reg_agt_port", this);
    endfunction // new
 
    virtual function void build_phase(uvm_phase phase);

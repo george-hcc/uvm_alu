@@ -2,6 +2,7 @@ typedef virtual alu_if alu_vif;
 
 class alu_driver extends uvm_driver #(alu_transaction);
    `uvm_object_utils(alu_driver)
+   
    alu_vif vif;
    alu_transaction tr;
    
@@ -26,7 +27,7 @@ class alu_driver extends uvm_driver #(alu_transaction);
       wait(vif.rst_n === 0);
       forever begin
 	 vif.valid_in <= 0;
-	 @(negedge vif.rst);
+	 @(negedge vif.rst_n);
       end
    endtask // reset_signals
 

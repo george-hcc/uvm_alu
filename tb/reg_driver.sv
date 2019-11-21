@@ -2,6 +2,7 @@ typedef virtual reg_if reg_vif;
 
 class reg_driver extends uvm_driver #(reg_transaction);
    `uvm_object_utils(reg_driver)
+   
    reg_vif vif;
    reg_transaction tr;
    
@@ -16,8 +17,19 @@ class reg_driver extends uvm_driver #(reg_transaction);
    endfunction // build_phase
 
    task run_phase(uvm_phase phase);
-      get_and_drive(phase);
+      fork
+	 reset_signals();
+	 get_and_drive(phase);
+      join	 
    endtask // run_phase
+
+   virtual task reset_signals();
+      wait(vif.rst_n === 0);
+      forever begin
+	 vif.valid_reg <= 0;
+	 @(negedge vif.rst_n);
+      end
+   endtask // reset_signals
 
    virtual task get_and_drive(uvm_phase phase);
       wait (vif.rst_n === 0);

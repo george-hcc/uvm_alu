@@ -2,8 +2,8 @@ class reg_monitor extends uvm_monitor;
    `uvm_component_utils(monitor)
 
    reg_vif vif;
-   event begin_record, end_record;
    reg_transaction tr;
+   
    uvm_analysis_port #(reg_transaction) reg_port;
 
    function new(string name = "reg_monitor", uvm_component parent = null);
