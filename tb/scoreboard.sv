@@ -32,5 +32,3 @@ class scoreboard extends uvm_scoreboard;
    endfunction // connect_phase
 
 endclass // scoreboard
-      
-   
