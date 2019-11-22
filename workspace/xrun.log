@@ -1,0 +1,279 @@
+xrun(64): 19.09-s003: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s003: Started on Nov 21, 2019 at 10:57:08 -03
+xrun
+	-64bit
+	-uvm
+	../tb/pkg.sv
+	../tb/alu_if.sv
+	../tb/reg_if.sv
+	../src/datapath.sv
+	../src/mux.sv
+	../src/rb.sv
+	../src/ula.sv
+	../tb/top.sv
+	-sv_lib test.so
+	+UVM_TESTNAME=simple_test
+	-covtest simple_test
+	-access +r
+	-input ./shm.tcl
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /usr/local/cds/XCELIUM1909/tools/methodology/UVM/CDNS-1.1d
+file: ../tb/pkg.sv
+  `include "./alu_transaction.sv"
+                                |
+xmvlog: *E,COFILX (../tb/pkg.sv,5|32): cannot open include file './alu_transaction.sv'.
+  `include "./reg_transaction.sv"
+                                |
+xmvlog: *E,COFILX (../tb/pkg.sv,6|32): cannot open include file './reg_transaction.sv'.
+  `include ".ref_transaction.sv/"
+                                |
+xmvlog: *E,COFILX (../tb/pkg.sv,7|32): cannot open include file '.ref_transaction.sv/'.
+  `include "./alu_sequence.sv"
+                             |
+xmvlog: *E,COFILX (../tb/pkg.sv,8|29): cannot open include file './alu_sequence.sv'.
+  `include "./reg_sequence.sv"
+                             |
+xmvlog: *E,COFILX (../tb/pkg.sv,9|29): cannot open include file './reg_sequence.sv'.
+  `include "./alu_driver.sv"
+                           |
+xmvlog: *E,COFILX (../tb/pkg.sv,10|27): cannot open include file './alu_driver.sv'.
+  `include "./reg_driver.sv"
+                           |
+xmvlog: *E,COFILX (../tb/pkg.sv,11|27): cannot open include file './reg_driver.sv'.
+  `include "./alu_monitor.sv"
+                            |
+xmvlog: *E,COFILX (../tb/pkg.sv,12|28): cannot open include file './alu_monitor.sv'.
+  `include "./reg_monitor.sv"
+                            |
+xmvlog: *E,COFILX (../tb/pkg.sv,13|28): cannot open include file './reg_monitor.sv'.
+  `include "./alu_agent.sv"
+                          |
+xmvlog: *E,COFILX (../tb/pkg.sv,14|26): cannot open include file './alu_agent.sv'.
+  `include "./reg_agent.sv"
+                          |
+xmvlog: *E,COFILX (../tb/pkg.sv,15|26): cannot open include file './reg_agent.sv'.
+  `include "./refmod.sv"
+                       |
+xmvlog: *E,COFILX (../tb/pkg.sv,16|23): cannot open include file './refmod.sv'.
+  `include ".scoreboard.sv/"
+                           |
+xmvlog: *E,COFILX (../tb/pkg.sv,17|27): cannot open include file '.scoreboard.sv/'.
+  `include "./coverage.sv"
+                         |
+xmvlog: *E,COFILX (../tb/pkg.sv,18|25): cannot open include file './coverage.sv'.
+  `include "./environment.sv"
+                            |
+xmvlog: *E,COFILX (../tb/pkg.sv,19|28): cannot open include file './environment.sv'.
+  `include "./simple_test.sv"
+                            |
+xmvlog: *E,COFILX (../tb/pkg.sv,20|28): cannot open include file './simple_test.sv'.
+	package worklib.pkg:sv
+		errors: 16, warnings: 0
+file: ../tb/alu_if.sv
+   logic 	clk;
+         	  |
+xmvlog: *E,DUPIDN (../tb/alu_if.sv,7|12): identifier 'clk' previously declared [12.5(IEEE)].
+   logic 	rst_n;
+         	    |
+xmvlog: *E,DUPIDN (../tb/alu_if.sv,8|14): identifier 'rst_n' previously declared [12.5(IEEE)].
+	interface worklib.alu_if:sv
+		errors: 2, warnings: 0
+file: ../tb/reg_if.sv
+   logic  clk;
+            |
+xmvlog: *E,DUPIDN (../tb/reg_if.sv,7|12): identifier 'clk' previously declared [12.5(IEEE)].
+   logic  rst_n;
+              |
+xmvlog: *E,DUPIDN (../tb/reg_if.sv,8|14): identifier 'rst_n' previously declared [12.5(IEEE)].
+	interface worklib.reg_if:sv
+		errors: 2, warnings: 0
+file: ../src/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ../src/mux.sv
+	module worklib.mux:sv
+		errors: 0, warnings: 0
+file: ../src/rb.sv
+	module worklib.rb:sv
+		errors: 0, warnings: 0
+file: ../src/ula.sv
+	module worklib.ula:sv
+		errors: 0, warnings: 0
+file: ../tb/top.sv
+   import pkg::*;
+            |
+xmvlog: *E,NOPBIND (../tb/top.sv,3|12): Package pkg could not be bound.
+   initial begin​
+                |
+xmvlog: *W,NONPRT (../tb/top.sv,7|16): non-printable character (0xe2) ignored.
+   initial begin​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,7|17): non-printable character (0x80) ignored.
+   initial begin​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,7|18): non-printable character (0x8b) ignored.
+      clk = 1;​
+              |
+xmvlog: *W,NONPRT (../tb/top.sv,8|14): non-printable character (0xe2) ignored.
+      clk = 1;​
+               |
+xmvlog: *W,NONPRT (../tb/top.sv,8|15): non-printable character (0x80) ignored.
+      clk = 1;​
+                |
+xmvlog: *W,NONPRT (../tb/top.sv,8|16): non-printable character (0x8b) ignored.
+      rst_n = 1;​
+                |
+xmvlog: *W,NONPRT (../tb/top.sv,9|16): non-printable character (0xe2) ignored.
+      rst_n = 1;​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,9|17): non-printable character (0x80) ignored.
+      rst_n = 1;​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,9|18): non-printable character (0x8b) ignored.
+      #20 rst_n = 0;​ //verificar com a equipe se o reset vai ser esse mesmo
+                    |
+xmvlog: *W,NONPRT (../tb/top.sv,10|20): non-printable character (0xe2) ignored.
+      #20 rst_n = 0;​ //verificar com a equipe se o reset vai ser esse mesmo
+                     |
+xmvlog: *W,NONPRT (../tb/top.sv,10|21): non-printable character (0x80) ignored.
+      #20 rst_n = 0;​ //verificar com a equipe se o reset vai ser esse mesmo
+                      |
+xmvlog: *W,NONPRT (../tb/top.sv,10|22): non-printable character (0x8b) ignored.
+      #20 rst_n = 1;​
+                    |
+xmvlog: *W,NONPRT (../tb/top.sv,11|20): non-printable character (0xe2) ignored.
+      #20 rst_n = 1;​
+                     |
+xmvlog: *W,NONPRT (../tb/top.sv,11|21): non-printable character (0x80) ignored.
+      #20 rst_n = 1;​
+                      |
+xmvlog: *W,NONPRT (../tb/top.sv,11|22): non-printable character (0x8b) ignored.
+   end​
+      |
+xmvlog: *W,NONPRT (../tb/top.sv,12|6): non-printable character (0xe2) ignored.
+   end​
+       |
+xmvlog: *W,NONPRT (../tb/top.sv,12|7): non-printable character (0x80) ignored.
+   end​
+        |
+xmvlog: *W,NONPRT (../tb/top.sv,12|8): non-printable character (0x8b) ignored.
+   always #10 clk = !clk;​ //verificar com a equipe se o clk vai ser esse
+                         |
+xmvlog: *W,NONPRT (../tb/top.sv,14|25): non-printable character (0xe2) ignored.
+   always #10 clk = !clk;​ //verificar com a equipe se o clk vai ser esse
+                          |
+xmvlog: *W,NONPRT (../tb/top.sv,14|26): non-printable character (0x80) ignored.
+   always #10 clk = !clk;​ //verificar com a equipe se o clk vai ser esse
+                           |
+xmvlog: *W,NONPRT (../tb/top.sv,14|27): non-printable character (0x8b) ignored.
+   initial begin​
+                |
+xmvlog: *W,NONPRT (../tb/top.sv,22|16): non-printable character (0xe2) ignored.
+   initial begin​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,22|17): non-printable character (0x80) ignored.
+   initial begin​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,22|18): non-printable character (0x8b) ignored.
+   `ifdef XCELIUM​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,23|17): non-printable character (0xe2) ignored.
+   `ifdef XCELIUM​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,23|18): non-printable character (0x80) ignored.
+   `ifdef XCELIUM​
+                   |
+xmvlog: *W,NONPRT (../tb/top.sv,23|19): non-printable character (0x8b) ignored.
+      $recordvars();​
+                    |
+xmvlog: *W,NONPRT (../tb/top.sv,24|20): non-printable character (0xe2) ignored.
+      $recordvars();​
+                     |
+xmvlog: *W,NONPRT (../tb/top.sv,24|21): non-printable character (0x80) ignored.
+      $recordvars();​
+                      |
+xmvlog: *W,NONPRT (../tb/top.sv,24|22): non-printable character (0x8b) ignored.
+   `endif​
+         |
+xmvlog: *W,NONPRT (../tb/top.sv,25|9): non-printable character (0xe2) ignored.
+   `endif​
+          |
+xmvlog: *W,NONPRT (../tb/top.sv,25|10): non-printable character (0x80) ignored.
+   `endif​
+           |
+xmvlog: *W,NONPRT (../tb/top.sv,25|11): non-printable character (0x8b) ignored.
+   `ifdef VCS​
+             |
+xmvlog: *W,NONPRT (../tb/top.sv,26|13): non-printable character (0xe2) ignored.
+   `ifdef VCS​
+              |
+xmvlog: *W,NONPRT (../tb/top.sv,26|14): non-printable character (0x80) ignored.
+   `ifdef VCS​
+               |
+xmvlog: *W,NONPRT (../tb/top.sv,26|15): non-printable character (0x8b) ignored.
+      $vcdpluson;​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,27|17): non-printable character (0xe2) ignored.
+      $vcdpluson;​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,27|18): non-printable character (0x80) ignored.
+      $vcdpluson;​
+                   |
+xmvlog: *W,NONPRT (../tb/top.sv,27|19): non-printable character (0x8b) ignored.
+   `endif​
+         |
+xmvlog: *W,NONPRT (../tb/top.sv,28|9): non-printable character (0xe2) ignored.
+   `endif​
+          |
+xmvlog: *W,NONPRT (../tb/top.sv,28|10): non-printable character (0x80) ignored.
+   `endif​
+           |
+xmvlog: *W,NONPRT (../tb/top.sv,28|11): non-printable character (0x8b) ignored.
+   `ifdef QUESTA​
+                |
+xmvlog: *W,NONPRT (../tb/top.sv,29|16): non-printable character (0xe2) ignored.
+   `ifdef QUESTA​
+                 |
+xmvlog: *W,NONPRT (../tb/top.sv,29|17): non-printable character (0x80) ignored.
+   `ifdef QUESTA​
+                  |
+xmvlog: *W,NONPRT (../tb/top.sv,29|18): non-printable character (0x8b) ignored.
+      $wlfdumpvars();​
+                     |
+xmvlog: *W,NONPRT (../tb/top.sv,30|21): non-printable character (0xe2) ignored.
+      $wlfdumpvars();​
+                      |
+xmvlog: *W,NONPRT (../tb/top.sv,30|22): non-printable character (0x80) ignored.
+      $wlfdumpvars();​
+                       |
+xmvlog: *W,NONPRT (../tb/top.sv,30|23): non-printable character (0x8b) ignored.
+      set_config_int("*", "recording_detail", 1);​
+                                                 |
+xmvlog: *W,NONPRT (../tb/top.sv,31|49): non-printable character (0xe2) ignored.
+      set_config_int("*", "recording_detail", 1);​
+                                                  |
+xmvlog: *W,NONPRT (../tb/top.sv,31|50): non-printable character (0x80) ignored.
+      set_config_int("*", "recording_detail", 1);​
+                                                   |
+xmvlog: *W,NONPRT (../tb/top.sv,31|51): non-printable character (0x8b) ignored.
+   `endif​
+         |
+xmvlog: *W,NONPRT (../tb/top.sv,32|9): non-printable character (0xe2) ignored.
+   `endif​
+          |
+xmvlog: *W,NONPRT (../tb/top.sv,32|10): non-printable character (0x80) ignored.
+   `endif​
+           |
+xmvlog: *W,NONPRT (../tb/top.sv,32|11): non-printable character (0x8b) ignored.
+      run_test("simple_test");​
+                              |
+xmvlog: *W,NONPRT (../tb/top.sv,41|30): non-printable character (0xe2) ignored.
+      run_test("simple_test");​
+                               |
+xmvlog: *W,NONPRT (../tb/top.sv,41|31): non-printable character (0x80) ignored.
+      run_test("simple_test");​
+                                |
+xmvlog: *W,NONPRT (../tb/top.sv,41|32): non-printable character (0x8b) ignored.
+	module worklib.top:sv
+		errors: 1, warnings: 57
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	19.09-s003: Exiting on Nov 21, 2019 at 10:57:09 -03  (total: 00:00:01)

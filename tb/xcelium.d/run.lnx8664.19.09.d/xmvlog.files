@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/tb/pkg.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/tb/alu_if.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/tb/reg_if.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/src/datapath.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/src/mux.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/src/rb.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/src/ula.sv
+/mnt/hdd1tera/xmen/vinicius.bonfim/verificacao/uvm_alu/tb/top.sv

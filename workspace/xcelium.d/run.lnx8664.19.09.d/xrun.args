@@ -1,0 +1,23 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-64bit
+-uvm
+../tb/pkg.sv
+../tb/alu_if.sv
+../tb/reg_if.sv
+../src/datapath.sv
+../src/mux.sv
+../src/rb.sv
+../src/ula.sv
+../tb/top.sv
+-sv_lib
+test.so
++UVM_TESTNAME=simple_test
+-covtest
+simple_test
+-access
++r
+-input
+./shm.tcl

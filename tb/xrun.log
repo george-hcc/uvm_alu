@@ -1,0 +1,379 @@
+xrun(64): 19.09-s003: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s003: Started on Nov 22, 2019 at 09:24:35 -03
+xrun
+	-64bit
+	-uvm
+	./pkg.sv
+	./alu_if.sv
+	./reg_if.sv
+	../src/datapath.sv
+	../src/mux.sv
+	../src/rb.sv
+	../src/ula.sv
+	./top.sv
+	-sv_lib test.so
+	+UVM_TESTNAME=simple_test
+	-covtest simple_test
+	-access +r
+	-input shm.tcl
+	+uvm_set_config_int=*,recording_detail,1
+	-coverage all
+	-covoverwrite
+	-nowarn NONPRT
+
+   User defined plus("+") options:
+	+uvm_set_config_int=*,recording_detail,1
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /usr/local/cds/XCELIUM1909/tools/methodology/UVM/CDNS-1.1d
+file: ./pkg.sv
+package pkg;
+          |
+xmvlog: *W,TSNSPK (./pkg.sv,1|10): `timescale is not specified for the package.  The default timescale of 1ns/1ns will be assumed for this package.
+	    begin_tr(alu_tr, "alu_tr");
+	           |
+xmvlog: *W,FUNTSK (./alu_monitor.sv,37|12): function called as a task without void'().
+	    begin_tr(ref_tr, "ref_tr");
+	           |
+xmvlog: *W,FUNTSK (./alu_monitor.sv,55|12): function called as a task without void'().
+	    begin_tr(tr, "reg_tr");
+	           |
+xmvlog: *W,FUNTSK (./reg_monitor.sv,33|12): function called as a task without void'().
+    begin_tr(ref_tr_out, "refmod");
+           |
+xmvlog: *W,FUNTSK (./refmod.sv,70|11): function called as a task without void'().
+	package worklib.pkg:sv
+		errors: 0, warnings: 5
+file: ./alu_if.sv
+	interface worklib.alu_if:sv
+		errors: 0, warnings: 0
+file: ./reg_if.sv
+	interface worklib.reg_if:sv
+		errors: 0, warnings: 0
+file: ../src/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ../src/mux.sv
+	module worklib.mux:sv
+		errors: 0, warnings: 0
+file: ../src/rb.sv
+	module worklib.rb:sv
+		errors: 0, warnings: 0
+file: ../src/ula.sv
+	module worklib.ula:sv
+		errors: 0, warnings: 0
+file: ./top.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		pkg
+		top
+`uvm_analysis_imp_decl(_alu)
+                           |
+xmelab: *W,FUNTSK (./refmod.sv,3|27): function called as a task without void'().
+`uvm_analysis_imp_decl(_reg)
+                           |
+xmelab: *W,FUNTSK (./refmod.sv,4|27): function called as a task without void'().
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+	Extracting FSMs for coverage:
+		worklib.ula
+		worklib.rb
+		worklib.mux
+		worklib.datapath
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.mux:sv <0x7ec3e2fa>
+			streams:   1, words:  1532
+		worklib.rb:sv <0x2f8ad928>
+			streams:   7, words:  4408
+		worklib.ula:sv <0x6a8ec0fa>
+			streams:  11, words: 11556
+		worklib.datapath:sv <0x36f4c819>
+			streams:  12, words:  4262
+		worklib.uvm_pkg:sv <0x7d42d10d>
+			streams:   8, words:  7542
+		worklib.uvm_pkg:sv <0x32354a77>
+			streams:   8, words:  7202
+		worklib.uvm_pkg:sv <0x1a5d05bb>
+			streams:   7, words:  6612
+		worklib.uvm_pkg:sv <0x475d9436>
+			streams:   7, words:  1918
+		worklib.uvm_pkg:sv <0x74d4a531>
+			streams:   8, words:  2765
+		worklib.uvm_pkg:sv <0x5cfacbf2>
+			streams:  22, words: 50596
+		worklib.uvm_pkg:sv <0x3e3c4435>
+			streams:   7, words:  1918
+		worklib.uvm_pkg:sv <0x2ecf7155>
+			streams:  28, words: 26382
+		worklib.uvm_pkg:sv <0x72cb9a6c>
+			streams:  27, words: 25177
+		worklib.uvm_pkg:sv <0x11ae21ba>
+			streams:  23, words: 24620
+		worklib.uvm_pkg:sv <0x4233478e>
+			streams:  14, words:  5920
+		worklib.uvm_pkg:sv <0x03d47c84>
+			streams:  26, words: 35156
+		worklib.uvm_pkg:sv <0x55dcfaf6>
+			streams:   7, words:  2422
+		worklib.uvm_pkg:sv <0x6093b903>
+			streams:  14, words: 15839
+		worklib.uvm_pkg:sv <0x5600505e>
+			streams:  26, words: 29837
+		worklib.uvm_pkg:sv <0x6639e8e9>
+			streams:  25, words: 54467
+		worklib.uvm_pkg:sv <0x77924f58>
+			streams:  27, words: 32823
+		worklib.uvm_pkg:sv <0x71f00a85>
+			streams:  26, words: 46766
+		worklib.uvm_pkg:sv <0x3a813b44>
+			streams:  27, words: 35371
+		worklib.uvm_pkg:sv <0x4e7346df>
+			streams:  25, words: 51262
+		worklib.uvm_pkg:sv <0x768fafa5>
+			streams:  27, words: 37474
+		worklib.uvm_pkg:sv <0x6afe0b50>
+			streams:  25, words: 56962
+		worklib.uvm_pkg:sv <0x1c197361>
+			streams:  27, words: 42288
+		worklib.uvm_pkg:sv <0x1219a400>
+			streams:  25, words: 50105
+		worklib.uvm_pkg:sv <0x639429c5>
+			streams:  25, words: 53621
+		worklib.uvm_pkg:sv <0x1639e343>
+			streams:  27, words: 34915
+		worklib.uvm_pkg:sv <0x042a033f>
+			streams:  25, words: 50164
+		worklib.uvm_pkg:sv <0x63996a0e>
+			streams:  28, words: 79461
+		worklib.uvm_pkg:sv <0x36e9b5be>
+			streams:  59, words: 78598
+		worklib.cdns_uvm_pkg:sv <0x7b7c8598>
+			streams:  27, words: 34653
+		worklib.cdns_uvm_pkg:sv <0x7e3d5139>
+			streams:   8, words:  4022
+		worklib.cdns_uvm_pkg:sv <0x682e5cc5>
+			streams:  10, words:  8686
+		worklib.uvm_pkg:sv <0x6bf756b7>
+			streams:  26, words: 25517
+		worklib.uvm_pkg:sv <0x61964b5f>
+			streams:   7, words:  3090
+		worklib.uvm_pkg:sv <0x1ee5d63b>
+			streams:  24, words: 22093
+		worklib.uvm_pkg:sv <0x7a2f377f>
+			streams:  24, words: 22437
+		worklib.uvm_pkg:sv <0x6cbb4e1d>
+			streams:  56, words: 58778
+		worklib.uvm_pkg:sv <0x0d3cb422>
+			streams:  24, words: 21695
+		worklib.uvm_pkg:sv <0x0378a013>
+			streams:   9, words:  4523
+		worklib.uvm_pkg:sv <0x1a154255>
+			streams:  55, words: 57500
+		worklib.uvm_pkg:sv <0x05409c42>
+			streams:  26, words: 31050
+		worklib.uvm_pkg:sv <0x47925d8f>
+			streams: 270, words: 261144
+		worklib.uvm_pkg:sv <0x1b86941e>
+			streams:   7, words:  3090
+		worklib.pkg:sv <0x3b33ac2c>
+			streams:  44, words: 46572
+		worklib.uvm_pkg:sv <0x1795a377>
+			streams:  98, words: 136681
+		worklib.uvm_pkg:sv <0x6462264f>
+			streams:   7, words:  3090
+		worklib.uvm_pkg:sv <0x03312621>
+			streams:  22, words: 23788
+		worklib.uvm_pkg:sv <0x2bf572c5>
+			streams:  32, words: 27425
+		worklib.uvm_pkg:sv <0x70e84523>
+			streams:  33, words: 30161
+		worklib.uvm_pkg:sv <0x59d42bb8>
+			streams:  33, words: 30161
+		worklib.top:sv <0x344dbd1e>
+			streams: 148, words: 198918
+		worklib.pkg:sv <0x6b2a0f71>
+			streams: 596, words: 711788
+		worklib.cdns_uvm_pkg:sv <0x00754e89>
+			streams: 134, words: 246574
+		worklib.cdns_uvmapi:svp <0x1ef79f65>
+			streams:  27, words: 31625
+		worklib.cdns_assert2uvm_pkg:sv <0x27f0bfb0>
+			streams:   3, words:  2233
+		worklib.uvm_pkg:sv <0x1d592acc>
+			streams: 4440, words: 7214963
+logic [15:0] registers [4];
+                     |
+xmelab: *W,COVMDD (../src/rb.sv,16|21): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       5       5
+		Interfaces:                    2       2
+		Verilog packages:              5       5
+		Registers:                 15514   10361
+		Scalar wires:                 13       -
+		Vectored wires:               27       -
+		Named events:                  4      16
+		Always blocks:                 8       8
+		Initial blocks:              320     161
+		Parallel blocks:              32      33
+		Cont. assignments:             3       3
+		Pseudo assignments:           23      23
+		Assertions:                    4       4
+		SV Class declarations:       213     321
+		SV Class specializations:    445     445
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are not specified and will default to 0. The recommended value for each of them is 1 which will become the default in a future release.
+SVSEED default: 1
+xmsim: *W,RNDXCELON: Xceligen, the new SystemVerilog constraint solver is used. Disabling Xceligen and using the legacy constraint solver is possible with "xrun/xmsim -xceligen on=0 ...".
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /usr/local/cds/XCELIUM1909/tools/xcelium/files/xmsimrc
+xcelium> source /usr/local/cds/XCELIUM1909/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves -shm
+Created SHM database waves
+xcelium> probe -create top -depth all -all -shm -database waves
+Created probe 1
+xcelium> run 
+----------------------------------------------------------------
+CDNS-UVM-1.1d (19.09-s003)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test simple_test...
+UVM_INFO @ 0: reporter [UVM_CMDLINE_PROC] Applying config setting from the command line: +uvm_set_config_int=*,recording_detail,1
+SDI/Verilog Transaction Recording Facility Version 19.09-s003
+UVM_INFO @ 140: uvm_test_top.env.sb.comp [Comparator Match] 
+UVM_INFO @ 200: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hcdd1 : rhs = 'h1ea2
+UVM_INFO @ 200: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6313 vs. ref_tr@4324
+UVM_WARNING @ 200: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 300: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hc5d9 : rhs = 'h3311
+UVM_INFO @ 300: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6320 vs. ref_tr@4324
+UVM_WARNING @ 300: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 320: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hf67b : rhs = 'hb45f
+UVM_INFO @ 320: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6298 vs. ref_tr@4324
+UVM_WARNING @ 320: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 380: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h9fd1 : rhs = 'hcdd1
+UVM_INFO @ 380: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6369 vs. ref_tr@4324
+UVM_WARNING @ 380: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 580: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h5380 : rhs = 'h6754
+UVM_INFO @ 580: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6219 vs. ref_tr@4324
+UVM_WARNING @ 580: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 660: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hcbdd : rhs = 'hc5d9
+UVM_INFO @ 660: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6348 vs. ref_tr@4324
+UVM_WARNING @ 660: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 760: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hedbe : rhs = 'h8cc6
+UVM_INFO @ 760: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6364 vs. ref_tr@4324
+UVM_WARNING @ 760: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 860: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hed2a : rhs = 'hf67b
+UVM_INFO @ 860: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6382 vs. ref_tr@4324
+UVM_WARNING @ 860: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 880: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hcbe1 : rhs = 'hdee8
+UVM_INFO @ 880: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6292 vs. ref_tr@4324
+UVM_WARNING @ 880: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 980: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hb291 : rhs = 'h5380
+UVM_INFO @ 980: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6295 vs. ref_tr@4324
+UVM_WARNING @ 980: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1060: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hf31e : rhs = 'hf632
+UVM_INFO @ 1060: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@447 vs. ref_tr@4324
+UVM_WARNING @ 1060: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1180: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'ha678 : rhs = 'h89cb
+UVM_INFO @ 1180: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6298 vs. ref_tr@4324
+UVM_WARNING @ 1180: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1220: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h8cc6 : rhs = 'hdd4b
+UVM_INFO @ 1220: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6401 vs. ref_tr@4324
+UVM_WARNING @ 1220: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1300: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'ha1d3 : rhs = 'hc92d
+UVM_INFO @ 1300: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6307 vs. ref_tr@4324
+UVM_WARNING @ 1300: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1340: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h1c03 : rhs = 'hedbe
+UVM_INFO @ 1340: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6336 vs. ref_tr@4324
+UVM_WARNING @ 1340: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1440: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h221a : rhs = 'hed2a
+UVM_INFO @ 1440: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6438 vs. ref_tr@4324
+UVM_WARNING @ 1440: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1460: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h43bc : rhs = 'hc430
+UVM_INFO @ 1460: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6432 vs. ref_tr@4324
+UVM_WARNING @ 1460: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1600: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hd139 : rhs = 'h1d2eb
+UVM_INFO @ 1600: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6317 vs. ref_tr@4324
+UVM_WARNING @ 1600: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1680: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h7a50 : rhs = 'hcbe1
+UVM_INFO @ 1680: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6358 vs. ref_tr@4324
+UVM_WARNING @ 1680: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1780: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hacc7 : rhs = 'hb291
+UVM_INFO @ 1780: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6421 vs. ref_tr@4324
+UVM_WARNING @ 1780: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1860: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'hb4a : rhs = 'hf31e
+UVM_INFO @ 1860: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6458 vs. ref_tr@4324
+UVM_WARNING @ 1860: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO @ 1920: reporter [MISCMP] Miscompare for ref_tr.data_out: lhs = 'h76a4 : rhs = 'hfdc9
+UVM_INFO @ 1920: reporter [MISCMP] 1 Miscompare(s) for object ref_tr_out@6230 vs. ref_tr@4324
+UVM_WARNING @ 1920: uvm_test_top.env.sb.comp [Comparator Mismatch]  differs from 
+UVM_INFO /usr/local/cds/XCELIUM1909/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 2020: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   48
+UVM_WARNING :   22
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[Comparator Match]     1
+[Comparator Mismatch]    22
+[MISCMP]    44
+[RNTST]     1
+[TEST_DONE]     1
+[UVM_CMDLINE_PROC]     1
+Simulation complete via $finish(1) at time 2020 NS + 46
+/usr/local/cds/XCELIUM1909/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  simple_test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_292ee9b1_00000000.ucm
+  data               :  ./cov_work/scope/simple_test/icc_292ee9b1_00000000.ucd
+TOOL:	xrun(64)	19.09-s003: Exiting on Nov 22, 2019 at 09:24:41 -03  (total: 00:00:06)

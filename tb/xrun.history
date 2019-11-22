@@ -1,0 +1,1 @@
+s1(22Nov2019:09:24:35):  xrun -64bit -uvm ./pkg.sv ./alu_if.sv ./reg_if.sv ../src/datapath.sv ../src/mux.sv ../src/rb.sv ../src/ula.sv ./top.sv -sv_lib test.so +UVM_TESTNAME=simple_test -covtest simple_test -access +r -input shm.tcl +uvm_set_config_int=*,recording_detail,1 -coverage all -covoverwrite -nowarn NONPRT 
