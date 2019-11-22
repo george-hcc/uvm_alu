@@ -24,11 +24,13 @@ class coverage extends uvm_component;​
     phase.drop_objection(this);​
   endtask: run_phase​
 
-  function void write(alu_transaction t);​
-    n_tr = n_tr + 1;​
-    if(n_tr >= min_tr)begin​
-      ->end_of_simulation;​
-    end​
+  function void write(alu_transaction t);
+     ​if(t.valid_out) begin
+	n_tr = n_tr + 1;​
+	if(n_tr >= min_tr)begin​
+	   ->end_of_simulation;​
+	end​
+     end
   endfunction: write​
 
 endclass : coverage​
