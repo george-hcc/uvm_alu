@@ -11,7 +11,7 @@ class coverage extends uvm_component;​
     super.new(name, parent);​
     alu_port = new("alu_port", this);​
     alu_tr=new;​
-    min_tr = 100;​
+    min_tr = 10000;​
   endfunction​
 
   function void build_phase(uvm_phase phase);​

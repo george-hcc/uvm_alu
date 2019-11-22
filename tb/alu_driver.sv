@@ -37,6 +37,7 @@ class alu_driver extends uvm_driver #(alu_transaction);
       forever begin
 	 seq_item_port.get_next_item(tr);
 	 driver_transfer(tr);
+	 if(vif.valid_in) wait(vif.valid_out); 
 	 seq_item_port.item_done();
       end
    endtask // get_and_drive
