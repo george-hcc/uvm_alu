@@ -1,7 +1,7 @@
 typedef virtual reg_if reg_vif;
 
 class reg_driver extends uvm_driver #(reg_transaction);
-   `uvm_object_utils(reg_driver)
+   `uvm_component_utils(reg_driver)
    
    reg_vif vif;
    reg_transaction tr;

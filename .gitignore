@@ -1,0 +1,6 @@
+xcelium.d
+xrun.*
+cov_work/
+*.so
+top-1*
+waves.*

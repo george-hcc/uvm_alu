@@ -1,5 +1,5 @@
 class alu_monitor extends uvm_monitor;
-   `uvm_component_utils(monitor)
+   `uvm_component_utils(alu_monitor)
 
    alu_vif vif;
    alu_transaction alu_tr;
@@ -34,16 +34,16 @@ class alu_monitor extends uvm_monitor;
       forever begin
 	 @(posedge vif.clk);
 	 if(vif.rst_n) begin
-	    begin_tr(tr, "alu_tr");
+	    begin_tr(alu_tr, "alu_tr");
 	    alu_tr.data_in   = vif.data_A;
 	    alu_tr.reg_sel   = vif.reg_sel;
-	    alu_tr.intr      = vif.intr;
+	    alu_tr.instr     = vif.instr;
 	    alu_tr.valid_in  = vif.valid_in;
 	    alu_tr.data_out  = vif.data_out;
 	    alu_tr.valid_out = vif.valid_out;
-	    alu_mon_port.write(tr);
+	    alu_mon_port.write(alu_tr);
 	    @(negedge vif.clk);
-	    end_tr(tr);
+	    end_tr(alu_tr);
 	 end // if (vif.rst_n)
       end // forever begin
    endtask // collect_transaction
@@ -52,11 +52,11 @@ class alu_monitor extends uvm_monitor;
       forever begin
 	 @(posedge vif.clk);
 	 if(vif.rst_n && vif.valid_out) begin
-	    begin_tr(tr, "ref_tr");
+	    begin_tr(ref_tr, "ref_tr");
 	    ref_tr.data_out = vif.data_out;
-	    ref_mon_port.write(tr);
+	    ref_mon_port.write(ref_tr);
 	    @(negedge vif.clk);
-	    end_tr(tr);
+	    end_tr(ref_tr);
 	 end
       end
    endtask // collect_ref_transaction

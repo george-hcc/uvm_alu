@@ -1,5 +1,5 @@
 class reg_monitor extends uvm_monitor;
-   `uvm_component_utils(monitor)
+   `uvm_component_utils(reg_monitor)
 
    reg_vif vif;
    reg_transaction tr;

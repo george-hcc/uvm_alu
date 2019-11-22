@@ -11,5 +11,7 @@ extern "C" int my_alu(int a, int b, int op){
     return a + 1;
   case 3:
     return b + 1;
+  default:
+    return 0;
   }
 }

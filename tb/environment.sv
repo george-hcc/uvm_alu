@@ -19,11 +19,11 @@ class environment extends uvm_env;
    endfunction : build_phase
 
    virtual function void connect_phase(uvm_phase phase);
-      alu_agt.alu_agt_port.connect(cov.cov_port); // alu_agt -> coverage
+      alu_agt.alu_agt_port.connect(cov.alu_port); // alu_agt -> coverage
       alu_agt.alu_agt_port.connect(sb.alu_mon_port); // alu_agt -> refmod
       alu_agt.ref_agt_port.connect(sb.alu_ref_port); // alu_agt -> comp
-      reg_agt.reg_agt_port.connect(cov.cov_port); // reg_agt -> coverage
+   //   reg_agt.reg_agt_port.connect(cov.cov_port); // reg_agt -> coverage      
       reg_agt.reg_agt_port.connect(sb.reg_mon_port); // reg_agt -> refmod
    endfunction : connect_phase
 
-endclass: environment
+endclass : environment

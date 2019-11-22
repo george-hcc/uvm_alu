@@ -1,7 +1,7 @@
 typedef virtual alu_if alu_vif;
 
 class alu_driver extends uvm_driver #(alu_transaction);
-   `uvm_object_utils(alu_driver)
+   `uvm_component_utils(alu_driver)
    
    alu_vif vif;
    alu_transaction tr;
@@ -47,7 +47,6 @@ class alu_driver extends uvm_driver #(alu_transaction);
       vif.reg_sel  <= tr.reg_sel;
       vif.instr    <= tr.instr;
       vif.valid_in <= tr.valid_in;
-      @(negedge vif.clk);
    endtask // driver_transfer
    
 endclass // alu_driver

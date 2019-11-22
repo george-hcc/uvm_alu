@@ -9,12 +9,16 @@ class scoreboard extends uvm_scoreboard;
    uvm_analysis_port #(alu_transaction) alu_mon_port;
    uvm_analysis_port #(reg_transaction) reg_mon_port;
    uvm_analysis_port #(ref_transaction) ref_mon_port;
+   uvm_analysis_port #(ref_transaction) alu_ref_port;
+   uvm_analysis_port #(ref_transaction) rfm_ref_port;
    
    function new(string name = "scoreboard", uvm_component parent);
       super.new(name, parent);
       alu_mon_port = new("alu_mon_port", this);
       reg_mon_port = new("reg_mon_port", this);
-      ref_mon_port = new("ref_mon_port", this);      
+      ref_mon_port = new("ref_mon_port", this); 
+      alu_ref_port = new("alu_ref_port", this);
+      rfm_ref_port = new("rfm_ref_port", this);
    endfunction // new
 
    virtual function void build_phase(uvm_phase phase);
